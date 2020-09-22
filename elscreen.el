@@ -780,6 +780,7 @@ when error is occurred."
        screen (elscreen-default-window-configuration))
       (elscreen-append-screen-to-history screen)
       (elscreen-notify-screen-modification 'force)
+      (setq this-created-screen screen)
       (run-hooks 'elscreen-create-hook)
       screen))))
 
@@ -911,6 +912,7 @@ ommitted, current-screen is killed."
       (elscreen-kill-internal screen)
       (elscreen-goto-internal (elscreen-get-current-screen))
       (elscreen-notify-screen-modification 'force)
+      (setq this-killed-screen screen)
       (run-hooks 'elscreen-kill-hook)
       screen))))
 
